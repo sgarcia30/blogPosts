@@ -41,7 +41,7 @@ router.post('/', jsonParser, (req, res) => {
 
 // Delete recipes (by id)!
 router.delete('/:id', (req, res) => {
-  Recipes.delete(req.params.id);
+  BlogPosts.delete(req.params.id);
   console.log(`Deleted blog post item \`${req.params.ID}\``);
   res.status(204).end();
 });
@@ -50,7 +50,7 @@ router.delete('/:id', (req, res) => {
 // required fields. also ensure that blogpost id in url path, and
 // blogpost id in updated item object match. if problems with any
 // of that, log error and send back status code 400. otherwise
-// call `Recipes.updateItem` with updated recipe.
+// call `BlogPosts.updateItem` with updated recipe.
 router.put('/:id', jsonParser, (req, res) => {
   const requiredFields = ['title', 'content', 'authorName', 'pubDate', 'id'];
   for (let i=0; i<requiredFields.length; i++) {

@@ -3,7 +3,7 @@ const morgan = require('morgan');
 
 const app = express();
 
-const blogPostRouter = require('./blog-posts');
+const blogPostsRouter = require('./blogPostsRouter');
 
 // log the http layer
 app.use(morgan('common'));
@@ -19,7 +19,7 @@ app.get('/', (req, res) => {
 // , we'll route them to the express
 // router instances we've imported. Remember,
 // these router instances act as modular, mini-express apps.
-app.use('/blog-posts', blogPostRouter);
+app.use('/blog-posts', blogPostsRouter);
 
 app.listen(process.env.PORT || 8080, () => {
   console.log(`Your app is listening on port ${process.env.PORT || 8080}`);
