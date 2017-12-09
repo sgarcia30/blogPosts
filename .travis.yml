@@ -1,2 +1,9 @@
 language: node_js
 node_js: node
+deploy:
+  provider: heroku
+  api_key:
+    secure: umTrFkw5SHhLzleXsxnYzhchRB4VVlxWrFKxGVJE0GGl506YDAzL5lj7NikWLilQsnz1jLbDr11xoKVp1FAqhWhkF09K86T+hmCrLNWk54cwvyLlM/IZk0nbc42/G4kfzycDNE5x9E6W1oUiyc3xXnO3WGCb3q6b9UUnOZAye1roQDgkigGy9wVBRqNkKL6Nbn+QavcSfQqDxGIRL7lBnlUTVjkqXMZpl8Be4Dn5cXq8mF6XSWBGeHao1fJPc5YW99yI9fC+3G2+lrfYuTC4u+Kgr6U5L8pegOapQFc2g7EduYTCSunPhl8o0Khj1VHOjHF/YGqv70pkXjb0247/LMTxebQiaJghQXsxmdDizinPR+Tyk3oK9waMLDVvF3WTZubB14L1FGqkCDOtIlSlUtj1Ug7Ei/I+tdgIXk+JwCCULsYpYMLSKTEKBChoK/FCg2BXdftQSqzVYT+vkoUvlEAD01SzPZY39jULE7+qmA9EaTnbDbVmWssN7KWKUVuaFPIJMvXp75Hl5I2pu92jEesJ/60f/jEGGJndZk+QSigSi1KAexmcM4XrFCP5YYWenDLuCVx+rgzaH690Netp66kPst0xNdZAhDYaE0ROB3X2qI2iPRtPb05Uzt63/by3Uh7eOjxgReQ0XNRe9reMBYx3hPuOpJt6O+Isy1R+Nbo=
+  app: damp-citadel-90670
+  on:
+    repo: sgarcia30/blogposts
