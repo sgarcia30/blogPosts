@@ -53,8 +53,8 @@ describe('BlogPosts', function() {
         // because we create two items on app load
         res.body.length.should.be.at.least(1);
         // each item should be an object with key/value pairs
-        // for `id`, `title`, `content`, `authorName` and `pubDate`.
-        const expectedKeys = ['id', 'title', 'content', 'authorName', 'pubDate'];
+        // for `id`, `title`, `content`, `author` and `publishDate`.
+        const expectedKeys = ['id', 'title', 'content', 'author', 'publishDate'];
         res.body.forEach(function(item) {
           item.should.be.a('object');
           item.should.include.keys(expectedKeys);
@@ -67,7 +67,7 @@ describe('BlogPosts', function() {
   //  2. inspect response object and prove it has right
   //  status code and that the returned object has an `id`
   it('should add an item on POST', function() {
-    const newItem = {title: 'Lorem Ipsum III', content:`lorem lorem lorem ipsum lorem ipsum lorem`, authorName: `Lorem Ipsum the III`, pubDate: `eternity`]};
+    const newItem = {title: 'Lorem Ipsum III', content:`lorem lorem lorem ipsum lorem ipsum lorem`, author: `Lorem Ipsum the III`, publishDate: `eternity`};
     return chai.request(app)
       .post('/blog-posts')
       .send(newItem)
@@ -75,7 +75,7 @@ describe('BlogPosts', function() {
         res.should.have.status(201);
         res.should.be.json;
         res.body.should.be.a('object');
-        res.body.should.include.keys('id', 'title', 'content', 'authorName', 'pubDate');
+        res.body.should.include.keys('id', 'title', 'content', 'author', 'publishDate');
         res.body.id.should.not.be.null;
         // response should be deep equal to `newItem` from above if we assign
         // `id` to it from `res.body.id`
@@ -98,8 +98,8 @@ describe('BlogPosts', function() {
     const updateData = {
       title: 'Lorrie',
       content: 'lorem lorem lorem',
-      authorName: 'Lor Lor',
-      pubDate: '180 BC'
+      author: 'Lor Lor',
+      publishDate: '180 BC'
     };
 
     return chai.request(app)

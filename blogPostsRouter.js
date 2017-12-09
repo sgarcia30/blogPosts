@@ -26,7 +26,7 @@ router.get('/', (req, res) => {
 // if okay, add new item, and return it with a status 201.
 router.post('/', jsonParser, (req, res) => {
   // ensure `name` and `budget` are in request body
-  const requiredFields = ['title', 'content', 'authorName', 'pubDate'];
+  const requiredFields = ['title', 'content', 'author', 'pulishDate'];
   for (let i=0; i<requiredFields.length; i++) {
     const field = requiredFields[i];
     if (!(field in req.body)) {
@@ -35,7 +35,7 @@ router.post('/', jsonParser, (req, res) => {
       return res.status(400).send(message);
     }
   }
-  const item = BlogPosts.create(req.body.title, req.body.content, req.body.authorName, req.body.pubDate);
+  const item = BlogPosts.create(req.body.title, req.body.content, req.body.author, req.body.publishDate);
   res.status(201).json(item);
 });
 
@@ -52,7 +52,7 @@ router.delete('/:id', (req, res) => {
 // of that, log error and send back status code 400. otherwise
 // call `BlogPosts.updateItem` with updated recipe.
 router.put('/:id', jsonParser, (req, res) => {
-  const requiredFields = ['title', 'content', 'authorName', 'pubDate', 'id'];
+  const requiredFields = ['title', 'content', 'author', 'publishDate', 'id'];
   for (let i=0; i<requiredFields.length; i++) {
     const field = requiredFields[i];
     if (!(field in req.body)) {
@@ -73,8 +73,8 @@ router.put('/:id', jsonParser, (req, res) => {
     id: req.params.id,
     title: req.body.title,
     content: req.body.content,
-    authorName: req.body.authorName,
-    pubDate: req.body.pubDate
+    author: req.body.author,
+    publishDate: req.body.publishDate
   });
   res.status(204).end();
 })
